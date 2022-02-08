@@ -11,7 +11,7 @@ document.getElementById('submitEmail').onclick = function(e) {
 
   }
   console.log(ids); 
-  $.post("http://localhost:3000/send-email",
+  $.post("https://crud-taskapp.herokuapp.com/send-email",
   {
      ids
      

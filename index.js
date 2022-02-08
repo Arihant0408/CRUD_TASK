@@ -11,7 +11,7 @@ const flash=require('connect-flash');
 const User= require('./models/user');
 const nodemailer = require("nodemailer");
 
-mongoose.connect(process.env.MONGOURI, {
+mongoose.connect('mongodb+srv://arihant13:arihant13@mycluster.e9l25.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -65,7 +65,7 @@ app.post('/send-email',async(req,res)=>{
   service: 'gmail',
   auth: {
     user:  "dugarrarihantt2015@gmail.com",
-    pass:  process.env.PASSWORD
+    pass:  "tueyyalpunqdwpdi"
   }
 });
 let count=1;

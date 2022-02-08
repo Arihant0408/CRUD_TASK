@@ -1,0 +1,42 @@
+<% layout('boilerplate')  %> 
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">S.No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Hobbies</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% let row=``;let count=1;for(let user of allUsers){ %>
+    <%  row+=` <tr>
+      <td><input type="checkbox" class="checkbox" name="id" value="${user.id}" />&nbsp;</td>
+      <th scope="row">${count++}</th>
+      <td>${user.name}</td>
+      <td>${user.email}</td>
+      <td>${user.phone}</td>
+      <td>${user.hobbies}</td>
+      <td>
+        <form action="/update?_method=put" method="POST">
+        <button class="btn btn-warning btn-sm " name="id" value="${user.id}">Update</button>
+        </form>
+        <form action="/delete?_method=delete" method="POST">
+        <button class="btn btn-danger btn-sm " name="id" value="${user.id}">Delete</button>
+        </form>
+        </td>
+
+
+    </tr>` 
+   } %>  
+    <%- row  %> 
+    
+   
+  </tbody>
+</table>
+<form>
+<button id="submitEmail" type="submit" class="btn btn-success">Send Email</button>
+</form>

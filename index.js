@@ -104,6 +104,9 @@ var mailOptions = {
 transporter.sendMail(mailOptions)
 
 });
-app.listen(3000, () => {
+
+var port_number = server.listen(process.env.PORT || 3000);
+
+app.listen(port_number, () => {
   console.log('Serving on port 3000')
 })

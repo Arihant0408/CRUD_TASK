@@ -1,16 +1,17 @@
-
-console.log("ok");
-
+// array for all id's whose info is to be sent
 let ids=[];
+
+//check for all selected fields
 document.getElementById('submitEmail').onclick = function(e) {  
   e.preventDefault();
   var markedCheckbox = document.querySelectorAll('input[type="checkbox"]:checked');  
   for (var checkbox of markedCheckbox) {  
-    //console.log(checkbox.value + ' '); 
     ids.push(checkbox.value) ;
 
   }
-  console.log(ids); 
+
+  
+  //sending post request to send emails of selected data
   $.post("https://crud-taskapp.herokuapp.com/send-email",
   {
      ids
@@ -23,11 +24,3 @@ document.getElementById('submitEmail').onclick = function(e) {
   $(".checkbox").prop("checked", false); 
   ids=[];
 }
-// $.ajax({
-//   type: "POST",
-//   url: "http://localhost:3000/send-email",
-//   data: ({detailsArr : ids }),
-//   success: function(html){
-//     alert( "Submitted");
-//       }
-// });  

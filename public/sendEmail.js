@@ -10,7 +10,11 @@ document.getElementById('submitEmail').onclick = function(e) {
 
   }
 
-  
+  if(ids.length==0)
+  {
+    alert("Select a Data to Send")
+  }
+  else{
   //sending post request to send emails of selected data
   $.post("https://crud-taskapp.herokuapp.com/send-email",
   {
@@ -23,4 +27,5 @@ document.getElementById('submitEmail').onclick = function(e) {
   alert("Data sent via email to info@redpositive.in")
   $(".checkbox").prop("checked", false); 
   ids=[];
+}
 }
